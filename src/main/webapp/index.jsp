@@ -25,7 +25,7 @@
                 <input type="email" name="email" required>
                 <label for="email">E-mail</label>
                 <input type="password" name="password" required>
-                <input type="submit" id="login-button" value="Logins">
+                <input type="submit" id="login-button" value="Login">
             </form>
         </div>
     </body>
