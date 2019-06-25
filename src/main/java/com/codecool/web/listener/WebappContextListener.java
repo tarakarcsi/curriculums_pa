@@ -43,7 +43,7 @@ public final class WebappContextListener implements ServletContextListener {
             */
             Context initCtx = new InitialContext();
             Context envCtx = (Context) initCtx.lookup("java:comp/env");
-            DataSource dataSource = (DataSource) envCtx.lookup("jdbc/couponStore");
+            DataSource dataSource = (DataSource) envCtx.lookup("jdbc/curriculums");
             ServletContext servletCtx = sce.getServletContext();
             servletCtx.setAttribute("dataSource", dataSource);
             return dataSource;
@@ -66,26 +66,6 @@ public final class WebappContextListener implements ServletContextListener {
             t.printStackTrace();
             throw new IllegalStateException(t);
         }
-        /*
-            Doing this is basically it's equivalent to this
-
-            Connection connection = null;
-            try {
-                connection = dataSource.getConnection();
-                ScriptUtils.executeSqlScript(connection, new ClassPathResource(resource));
-            } catch (Throwable t) {
-                t.printStackTrace();
-                throw new IllegalStateException(t);
-            } finally {
-                if (connection != null) {
-                    try {
-                        connection.close();
-                    } catch (SQLException ex) {
-                        ex.printStackTrace();
-                    }
-                }
-            }
-        */
     }
 
     @Override
