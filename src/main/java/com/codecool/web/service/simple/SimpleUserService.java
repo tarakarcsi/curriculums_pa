@@ -15,16 +15,4 @@ public class SimpleUserService implements UserService {
     public SimpleUserService(UserDao userDao) {
     }
 
-    @Override
-    public User findUserByEmail(String email, String password) throws SQLException, ServiceException {
-        try {
-            User user = userDao.findUserByEmail(email);
-            if (user == null || !user.getPassword().equals(password)) {
-                throw new ServiceException("Login Error");
-            }
-            return user;
-        } catch (IllegalArgumentException e) {
-            throw new ServiceException(e.getMessage());
-        }
-    }
 }

@@ -5,6 +5,7 @@ import com.codecool.web.service.exception.ServiceException;
 
 import java.sql.SQLException;
 
-public interface UserService {
+public interface LoginService {
 
+    User loginUser(String email, String password) throws ServiceException, SQLException;
 }

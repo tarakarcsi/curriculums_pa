@@ -28,6 +28,12 @@ public class User extends AbstractModel {
         this.password = password;
     }
 
+    public User(String email, String password, boolean isAdmin) {
+        this.email = email;
+        this.password = password;
+        this.isAdmin = isAdmin;
+    }
+
     public String getEmail() {
         return email;
     }
