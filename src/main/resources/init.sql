@@ -28,5 +28,3 @@ create table purchases(
     FOREIGN KEY (userId) REFERENCES users(userId),
     FOREIGN KEY (curriculumId) REFERENCES curriculums(curriculumId)
 );
-
-
