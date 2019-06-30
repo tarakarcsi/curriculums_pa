@@ -12,6 +12,7 @@ create table curriculums(
 create table users(
     userId serial primary key,
     email varchar(40) not null,
+    name varchar(40),
     credit int,
     password text not null,
     curriculums int,

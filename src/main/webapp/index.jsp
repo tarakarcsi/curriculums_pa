@@ -9,24 +9,22 @@
         <script src="${indexScriptUrl}"></script>
     </head>
     <body>
-        <div class="register" id="redisterDiv">
-            <h2>Register</h2>
-            <form id="register-form">
-                    <input type="email" name="email" placeholder="" required/>
-                    <label for="email">E-mail</label>
-                    <input type="password" name="password" placeholder="" required/>
-                    <label for="email">password</label>
-                    <input type="submit" value="Register" id = "register-button" />
-            </form>
-        </div>
-        <div class="login" id = "loginDiv">
-            <h2>Login</h2>
-            <form id="login-form">
-                <input type="email" name="email" required>
-                <label for="email">E-mail</label>
-                <input type="password" name="password" required>
-                <input type="submit" id="login-button" value="Login">
-            </form>
-        </div>
+        <div class="login-page">
+            <div class="form">
+              <form class="register-form">
+                <input type="text" placeholder="name"/>
+                <input type="password" placeholder="password"/>
+                <input type="text" placeholder="email address"/>
+                <button>create</button>
+                <p class="message">Already registered? <a href="#">Sign In</a></p>
+              </form>
+              <form class="login-form">
+                <input type="text" placeholder="username"/>
+                <input type="password" placeholder="password"/>
+                <button>login</button>
+                <p class="message">Not registered? <a href="#">Create an account</a></p>
+              </form>
+            </div>
+          </div>
     </body>
 </html>

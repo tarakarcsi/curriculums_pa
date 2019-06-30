@@ -10,9 +10,9 @@ public class SimpleRegisterService {
 
     private UserDao userDao;
 
-    public User registerUser(String email, String password, boolean isAdmin) throws SQLException, ServiceException {
+    public User registerUser(String email, String name, String password, boolean isAdmin) throws SQLException, ServiceException {
         try{
-            User user = new User(email, password, isAdmin);
+            User user = new User(email, name, password, isAdmin);
             userDao.addNewUser(user.getEmail(), user.getPassword(), user.isAdmin());
             if (user == null || !user.getPassword().equals(password)){
                 throw new ServiceException("Login Error");

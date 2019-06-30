@@ -1,3 +1,4 @@
+/*
 package com.codecool.web.servlet;
 
 import com.codecool.web.dao.database.DatabaseUserDao;
@@ -23,3 +24,4 @@ public class RegisterServlet extends AbstractServlet {
             e.printStackTrace();
         }
     }
+*/

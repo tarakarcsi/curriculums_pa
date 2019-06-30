@@ -1,3 +1,4 @@
+/*
 package com.codecool.web.servlet;
 
 import com.codecool.web.dao.database.DatabaseUserDao;
@@ -38,3 +39,4 @@ public class LoginServlet extends AbstractServlet {
         }
     }
 }
+*/
