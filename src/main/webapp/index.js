@@ -1,3 +1,12 @@
+const OK = 200;
+const BAD_REQUEST = 400;
+const UNAUTHORIZED = 401;
+const NOT_FOUND = 404;
+const INTERNAL_SERVER_ERROR = 500;
+
+let loginFormEl;
+let registerFormEl;
+
 function showContents(ids) {
     const contentEls = document.getElementsByClassName('content');
     for (let i = 0; i < contentEls.length; i++) {
@@ -67,7 +76,12 @@ function onOtherResponse(targetEl, xhr) {
 }
 
 function onLoad() {
+    loginFormEl = document.getElementById('login-form');
+    registerFormEl = document.getElementById('register-form');
+    registerFormEl.style.display='none';
 
+    const loginButtonEl = document.getElementById('login-button');
+    loginButtonEl.addEventListener('click', onLoginButtonClicked);
 }
 
 document.addEventListener('DOMContentLoaded', onLoad);

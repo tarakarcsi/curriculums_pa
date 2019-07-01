@@ -7,22 +7,24 @@
         <link rel="stylesheet" type="text/css" href="${styleUrl}">
         <c:url value="/index.js" var="indexScriptUrl"/>
         <script src="${indexScriptUrl}"></script>
+        <c:url value="/login.js" var="loginScriptUrl"/>
+        <script src="${loginScriptUrl}"></script>
     </head>
     <body>
-        <div class="login-page">
+        <div id = "login-page" class="login-page">
             <div class="form">
-              <form class="register-form">
-                <input type="text" placeholder="name"/>
-                <input type="password" placeholder="password"/>
-                <input type="text" placeholder="email address"/>
-                <button>create</button>
+              <form id="register-form" class="hidden content">
+                <input name="name" type="text" placeholder="name"/>
+                <input name="password" type="password" placeholder="password"/>
+                <input name="email" type="text" placeholder="email address"/>
+                <button id = "register-button" >create</button> 
                 <p class="message">Already registered? <a href="#">Sign In</a></p>
               </form>
-              <form class="login-form">
-                <input type="text" placeholder="username"/>
-                <input type="password" placeholder="password"/>
-                <button>login</button>
-                <p class="message">Not registered? <a href="#">Create an account</a></p>
+              <form id="login-form" class="login-form">
+                <input name="email" type="text" placeholder="email"/>
+                <input name="password" type="password" placeholder="password"/>
+                <button id = "login-button" >login</button>
+                <p id="create-account" class="message">Not registered? <a href="javascript:void(0);" onclick="onCreateAccountClicked()";>Create an account</a></p>
               </form>
             </div>
           </div>
