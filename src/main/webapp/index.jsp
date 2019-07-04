@@ -9,6 +9,8 @@
         <script src="${indexScriptUrl}"></script>
         <c:url value="/login.js" var="loginScriptUrl"/>
         <script src="${loginScriptUrl}"></script>
+        <c:url value="/register.js" var="registerScriptUrl"/>
+        <script src="${registerScriptUrl}"></script>
     </head>
     <body>
         <div id = "login-page" class="login-page">

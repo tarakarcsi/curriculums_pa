@@ -56,7 +56,7 @@ function onNetworkError(response) {
     document.body.remove();
     const bodyEl = document.createElement('body');
     document.appendChild(bodyEl);
-    newError(bodyEl, 'Network error, please try reloaing the page');
+    newError(bodyEl, 'Network error, please try reloading the page');
 }
 
 function onOtherResponse(targetEl, xhr) {
@@ -82,6 +82,9 @@ function onLoad() {
 
     const loginButtonEl = document.getElementById('login-button');
     loginButtonEl.addEventListener('click', onLoginButtonClicked);
+
+    const registerButtonEl = document.getElementById('register-button');
+    registerButtonEl.addEventListener('click', onCreateButtonClicked);
 }
 
 document.addEventListener('DOMContentLoaded', onLoad);
