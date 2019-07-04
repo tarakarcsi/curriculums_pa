@@ -1,5 +1,3 @@
-
-
 function onCreateAccountClicked() {
     onCreateAccountLoad();
 }
@@ -9,6 +7,13 @@ function onCreateAccountLoad(){
     loginFormEl.style.display='none';
     const registerFormEl = document.getElementById('register-form');
     registerFormEl.style.display = 'block';
+}
+
+function onSignInClicked() {
+    const loginFormEl = document.getElementById('login-form');
+    loginFormEl.style.display='block';
+    const registerFormEl = document.getElementById('register-form');
+    registerFormEl.style.display = 'none';
 }
 
 function onLoginButtonClicked() {
@@ -26,7 +31,7 @@ function onLoginButtonClicked() {
     params.append('password', password);
 
     const xhr = new XMLHttpRequest();
-    xhr.addEventListener('');
+    //xhr.addEventListener('');
     xhr.addEventListener('error', onNetworkError);
     showContents('login-form');
     xhr.open('POST', 'login');

@@ -14,13 +14,15 @@
         <div id = "login-page" class="login-page">
             <div class="form">
               <form id="register-form" class="hidden content">
+                <h2>Register</h2>
                 <input name="name" type="text" placeholder="name"/>
                 <input name="password" type="password" placeholder="password"/>
                 <input name="email" type="text" placeholder="email address"/>
                 <button id = "register-button" >create</button> 
-                <p class="message">Already registered? <a href="#">Sign In</a></p>
+                <p id="signin" class="message">Already registered? <a href="javascript:void(0);" onclick="onSignInClicked()">Sign In</a></p>
               </form>
               <form id="login-form" class="login-form">
+                <h2>Login</h2>
                 <input name="email" type="text" placeholder="email"/>
                 <input name="password" type="password" placeholder="password"/>
                 <button id = "login-button" >login</button>

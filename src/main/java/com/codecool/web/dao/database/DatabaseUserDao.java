@@ -36,12 +36,13 @@ public class DatabaseUserDao extends AbstractDao implements UserDao {
         return new User(email, credit, password, isAdmin);
     }
 
-    public void addNewUser(String email, String password, boolean isAdmin) throws SQLException {
-        String sql = "INSERT INTO users(email, password) VALUES (?,?,?);";
+    public void addNewUser(String email, String name, String password, boolean isAdmin) throws SQLException {
+        String sql = "INSERT INTO users(email, name, password, role) VALUES (?,?,?,?);";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1, email);
-            preparedStatement.setString(2, password);
-            preparedStatement.setBoolean(3, isAdmin);
+            preparedStatement.setString(2, name);
+            preparedStatement.setString(3, password);
+            preparedStatement.setBoolean(4, isAdmin);
             executeInsert(preparedStatement);
         }
     }
