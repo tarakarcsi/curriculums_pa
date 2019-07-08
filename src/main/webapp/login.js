@@ -16,6 +16,16 @@ function onSignInClicked() {
     registerFormEl.style.display = 'none';
 }
 
+function onLoginResponse() {
+    if (this.status === OK) {
+        const user = JSON.parse(this.responseText);
+        setAuthorization(user);
+        
+    } else {
+        onOtherResponse(loginContentDivEl, this);
+    }
+}
+
 function onLoginButtonClicked() {
     
 
@@ -31,7 +41,7 @@ function onLoginButtonClicked() {
     params.append('password', password);
 
     const xhr = new XMLHttpRequest();
-    //xhr.addEventListener('');
+    xhr.addEventListener('load', onLoginResponse);
     xhr.addEventListener('error', onNetworkError);
     showContents('login-form');
     xhr.open('POST', 'login');

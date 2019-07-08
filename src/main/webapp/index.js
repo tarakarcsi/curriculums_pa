@@ -7,6 +7,22 @@ const INTERNAL_SERVER_ERROR = 500;
 let loginFormEl;
 let registerFormEl;
 
+function hasAuthorization() {
+    return localStorage.getItem('user') !== null;
+}
+
+function setAuthorization(user) {
+    return localStorage.setItem('user', JSON.stringify(user));
+}
+
+function getAuthorization() {
+    return JSON.parse(localStorage.getItem('user'));
+}
+
+function setUnauthorized() {
+    return localStorage.removeItem('user');
+}
+
 function showContents(ids) {
     const contentEls = document.getElementsByClassName('content');
     for (let i = 0; i < contentEls.length; i++) {
@@ -82,7 +98,6 @@ function onLoad() {
 
     const loginButtonEl = document.getElementById('login-button');
     loginButtonEl.addEventListener('click', onLoginButtonClicked);
-
     const registerButtonEl = document.getElementById('register-button');
     registerButtonEl.addEventListener('click', onCreateButtonClicked);
 }

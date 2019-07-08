@@ -1,5 +1,8 @@
 DROP TABLE IF EXISTS curriculums cascade;
+DROP TABLE IF EXISTS sections cascade;
+DROP TABLE IF EXISTS pages cascade;
 DROP TABLE IF EXISTS users cascade;
+DROP TABLE IF EXISTS admins cascade;
 DROP TABLE IF EXISTS purchases cascade;
 
 create table curriculums(
@@ -9,6 +12,18 @@ create table curriculums(
     content text
 );
 
+create table sections(
+    sectionId serial PRIMARY KEY,
+    curriculumId int,
+    FOREIGN KEY (curriculumId) REFERENCES curriculums(curriculumId)
+);
+
+create table pages(
+    pageId serial PRIMARY KEY,
+    sectionId int,
+    FOREIGN KEY (sectionId) REFERENCES sections(sectionId)
+);
+
 create table users(
     userId serial primary key,
     email varchar(40) not null,
@@ -16,11 +31,15 @@ create table users(
     credit int,
     password text not null,
     curriculums int,
-    isAdmin boolean,
     FOREIGN KEY (curriculums) REFERENCES curriculums(curriculumId)
 );
 
-
+create table admins(
+    adminId serial primary key,
+    email varchar(40) not null,
+    name varchar(40),
+    password text
+);
 
 create table purchases(
     purchaseId serial PRIMARY KEY,
@@ -31,7 +50,9 @@ create table purchases(
 );
 
 
-INSERT INTO users(email, name, password, isAdmin) VALUES ('admin1@curriculums.com', 'admin1', 'admin1', true);
-INSERT INTO users(email, name, password, isAdmin) VALUES ('admin2@curriculums.com', 'admin2', 'admin2', true);
-INSERT INTO users(email, name, password, isAdmin) VALUES ('user1@curriculums.com', 'user1', 'user1', false);
-INSERT INTO users(email, name, password, isAdmin) VALUES ('user2@curriculums.com', 'user2', 'user2', false);
+
+
+INSERT INTO users(email, name, password) VALUES ('user1@curriculums.com', 'user1', 'user1');
+INSERT INTO users(email, name, password) VALUES ('user2@curriculums.com', 'user2', 'user2');
+INSERT INTO admins(email, name, password) VALUES ('admin1@curriculums.com', 'admin1', 'admin1');
+INSERT INTO admins(email, name, password) VALUES ('admin2@curriculums.com', 'admin2', 'admin2');
