@@ -100,6 +100,13 @@ function onLoad() {
     loginButtonEl.addEventListener('click', onLoginButtonClicked);
     const registerButtonEl = document.getElementById('register-button');
     registerButtonEl.addEventListener('click', onCreateButtonClicked);
+
+    let mainNav = document.getElementById('js-menu');
+    let navBarToggle = document.getElementById('js-navbar-toggle');
+
+    navBarToggle.addEventListener('click', function () {
+    mainNav.classList.toggle('active');
+});
 }
 
 document.addEventListener('DOMContentLoaded', onLoad);

@@ -20,7 +20,7 @@ function onLoginResponse() {
     if (this.status === OK) {
         const user = JSON.parse(this.responseText);
         setAuthorization(user);
-        
+        showContents(['main', 'banner']);
     } else {
         onOtherResponse(loginContentDivEl, this);
     }
