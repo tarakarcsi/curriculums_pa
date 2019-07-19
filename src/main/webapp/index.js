@@ -103,6 +103,8 @@ function onLoad() {
     const registerButtonEl = document.getElementById('register-button');
     registerButtonEl.addEventListener('click', onCreateButtonClicked);
 
+    navBarEl = document.getElementById('navbar');
+    navBarEl.addEventListener('load', onProfileLoad);
     
 }
 

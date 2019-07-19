@@ -11,6 +11,8 @@
         <script src="${loginScriptUrl}"></script>
         <c:url value="/register.js" var="registerScriptUrl"/>
         <script src="${registerScriptUrl}"></script>
+        <c:url value="/profile.js" var="profileScriptUrl"/>
+        <script src="${profileScriptUrl}"></script>
     </head>
     <body>
         <div id = "login-page" class="">
@@ -39,21 +41,21 @@
                 </span>
                 <a href="#" class="logo">Curriculums</a>
                 <ul class="main-nav" id="js-menu">
+
+                    <p class="nav-links"><img src="https://cdn2.iconfinder.com/data/icons/business-management-52/96/Artboard_20-512.png" style="width:25px; text-align: left; vertical-align: bottom;"><div id="profile"></div>
                     <li>
-                        <a href="#" class="nav-links">Home</a>
+                        <p class="nav-links"><img src="https://cdn0.iconfinder.com/data/icons/cosmo-culture/40/books_1-512.png" style="width:25px; text-align: left; vertical-align: bottom;"> Library</p>
                     </li>
                     <li>
-                        <a href="#" class="nav-links">Products</a>
+                        <p class="nav-links"><img src="https://image.flaticon.com/icons/png/512/130/130304.png" style="width:25px; text-align: left; vertical-align: bottom;"> Curriculums</p>
                     </li>
                     <li>
-                        <a href="#" class="nav-links">About Us</a>
+                        <p class="nav-links"><img src="https://cdn4.iconfinder.com/data/icons/money-13/24/Wallet-2-512.png" style="width:25px; vertical-align: bottom; text-align: left;"> Wallet</p>
                     </li>
                     <li>
-                        <a href="#" class="nav-links">Contact Us</a>
+                        <p class="nav-links"><img src="https://cdn1.iconfinder.com/data/icons/materia-arrows-symbols-vol-3/24/018_128_arrow_exit_logout-512.png" style="width:25px; text-align: left; vertical-align: bottom;"> Logout</p>
                     </li>
-                    <li>
-                        <a href="#" class="nav-links">Blog</a>
-                    </li>
+                    
                 </ul>
             </nav>
         </div>

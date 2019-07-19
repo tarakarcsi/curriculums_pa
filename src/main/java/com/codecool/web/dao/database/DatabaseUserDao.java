@@ -30,9 +30,9 @@ public class DatabaseUserDao extends AbstractDao implements UserDao {
 
     private User fetchUser(ResultSet resultSet) throws SQLException {
         String email = resultSet.getString("email");
-        int credit = resultSet.getInt("credit");
         String password = resultSet.getString("password");
-        return new User(email, credit, password);
+        String name = resultSet.getString("name");
+        return new User(email, name, password);
     }
 
     public void addNewUser(String email, String name, String password) throws SQLException {

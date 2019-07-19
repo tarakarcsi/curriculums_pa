@@ -21,6 +21,7 @@ function onLoginResponse() {
         const user = JSON.parse(this.responseText);
         setAuthorization(user);
         showContents(['navbar']);
+        onProfileLoad();
     } else {
         onOtherResponse(loginPageDivEl, this);
     }
@@ -46,4 +47,28 @@ function onLoginButtonClicked() {
     xhr.addEventListener('error', onNetworkError);
     xhr.open('POST', 'login');
     xhr.send(params);
+}
+
+function displayUserName(user) {
+    const profileEl = document.getElementById('profile');
+    profileEl.textContent = user.name;
+    profileEl.textContent.style="text-align:center;";
+    profileEl.textContent.style="margin-left:40px;";
+    profileEl.textContent.style="vertical-align:bottom;";
+}
+
+function onProfileResponse() {
+    if(this.status === OK) {
+        const text = JSON.parse(this.responseText);
+        displayUserName(text);
+    }
+}
+
+function onProfileLoad() {
+    const xhr = new XMLHttpRequest();
+    xhr.addEventListener('load', onProfileResponse);
+    xhr.addEventListener('error', onNetworkError);
+
+    xhr.open('GET', 'user');
+    xhr.send();
 }
