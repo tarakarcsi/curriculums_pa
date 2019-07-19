@@ -32,17 +32,15 @@ public class DatabaseUserDao extends AbstractDao implements UserDao {
         String email = resultSet.getString("email");
         int credit = resultSet.getInt("credit");
         String password = resultSet.getString("password");
-        boolean isAdmin = resultSet.getBoolean("isAdmin");
-        return new User(email, credit, password, isAdmin);
+        return new User(email, credit, password);
     }
 
-    public void addNewUser(String email, String name, String password, boolean isAdmin) throws SQLException {
+    public void addNewUser(String email, String name, String password) throws SQLException {
         String sql = "INSERT INTO users(email, name, password, role) VALUES (?,?,?,?);";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1, email);
             preparedStatement.setString(2, name);
             preparedStatement.setString(3, password);
-            preparedStatement.setBoolean(4, isAdmin);
             executeInsert(preparedStatement);
         }
     }

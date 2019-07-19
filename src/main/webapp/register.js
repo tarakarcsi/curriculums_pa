@@ -18,6 +18,17 @@ function onCreateButtonClicked() {
     xhr.open('POST', 'register');
 }
 
+function onSignInButtonClicked() {
+    onSignInButtonLoad();
+}
+
+function onSignInButtonLoad() {
+    const loginFormEl = document.getElementById('login-form');
+    loginFormEl.style.display='block';
+    const registerFormEl = document.getElementById('register-form');
+    registerFormEl.style.display = 'none';
+}
+
 function onRegisterResponse() {
     if (this.status === OK) {
         const text = JSON.parse(this.responseText);

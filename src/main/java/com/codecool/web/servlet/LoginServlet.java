@@ -25,8 +25,7 @@ public class LoginServlet extends AbstractServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try (Connection connection = getConnection(req.getServletContext())) {
             UserDao userDao = new DatabaseUserDao(connection);
-            UserService userService = new SimpleUserService(userDao);
-            LoginService loginService = new SimpleLoginService();
+            LoginService loginService = new SimpleLoginService(userDao);
 
             String email = req.getParameter("email");
             String password = req.getParameter("password");
@@ -34,7 +33,6 @@ public class LoginServlet extends AbstractServlet {
             User user = loginService.loginUser(email, password);
 
             req.getSession().setAttribute("user", user);
-
             sendMessage(resp, HttpServletResponse.SC_OK, user);
         } catch (SQLException ex) {
             ex.printStackTrace();

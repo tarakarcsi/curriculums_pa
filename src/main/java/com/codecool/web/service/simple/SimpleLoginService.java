@@ -15,6 +15,7 @@ public class SimpleLoginService implements LoginService {
         this.userDao = userDao;
     }
 
+
     public User loginUser(String email, String password) throws SQLException, ServiceException {
         try{
             User user = userDao.findUserByEmail(email);

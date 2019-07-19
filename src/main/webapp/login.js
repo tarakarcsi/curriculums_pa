@@ -20,19 +20,19 @@ function onLoginResponse() {
     if (this.status === OK) {
         const user = JSON.parse(this.responseText);
         setAuthorization(user);
-        showContents(['main', 'banner']);
+        showContents(['navbar']);
     } else {
-        onOtherResponse(loginContentDivEl, this);
+        onOtherResponse(loginPageDivEl, this);
     }
 }
 
 function onLoginButtonClicked() {
-    
+    const loginFormEl = document.getElementById('login-form');
 
     const emailInputEl = loginFormEl.querySelector('input[name="email"]');
     const passwordInputEl = loginFormEl.querySelector('input[name="password"]');
 
-    const email = passwordInputEl.value;
+    const email = emailInputEl.value;
     const password = passwordInputEl.value;
 
     const params = new URLSearchParams();
@@ -40,10 +40,10 @@ function onLoginButtonClicked() {
     params.append('email', email);
     params.append('password', password);
 
+    console.log("test");
     const xhr = new XMLHttpRequest();
     xhr.addEventListener('load', onLoginResponse);
     xhr.addEventListener('error', onNetworkError);
-    showContents('login-form');
     xhr.open('POST', 'login');
     xhr.send(params);
 }
