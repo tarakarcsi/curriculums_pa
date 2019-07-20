@@ -15,6 +15,8 @@
         <script src="${profileScriptUrl}"></script>
         <c:url value="/credits.js" var="creditsScriptUrl"/>
         <script src="${creditsScriptUrl}"></script>
+        <c:url value="/topics.js" var="topicsScriptUrl"/>
+        <script src="${topicsScriptUrl}"></script>
     </head>
     <body>
         <div id = "login-page" class="">
@@ -62,9 +64,9 @@
             </nav>
         </div>
 
-        <div id="topics" class="content hidden">
+        <div id="topics" class="content">
             <table id="topics-table">
-                <tbody>
+                <tbody id="topics-tbody">
                     <tr>Topics</tr>
                 </tbody>
             </table>

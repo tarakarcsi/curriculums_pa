@@ -7,6 +7,7 @@ const INTERNAL_SERVER_ERROR = 500;
 let registerFormEl;
 let navBarEl;
 let loginPageDivEl;
+let topicsDivEl;
 
 function newInfo(targetEl, message) {
     newMessage(targetEl, 'info', message);
@@ -108,6 +109,8 @@ function onLoad() {
 
     navBarEl.addEventListener('load', onCreditsLoad);
     
+    topicsDivEl = document.getElementById('topics');
+    topicsDivEl.addEventListener('load', onTopicsLoad);
 }
 
 document.addEventListener('DOMContentLoaded', onLoad);

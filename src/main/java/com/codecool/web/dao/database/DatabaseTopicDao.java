@@ -11,7 +11,7 @@ import java.util.List;
 
 public class DatabaseTopicDao extends AbstractDao implements TopicDao{
 
-    DatabaseTopicDao(Connection connection) {
+    public DatabaseTopicDao(Connection connection) {
         super(connection);
     }
 
