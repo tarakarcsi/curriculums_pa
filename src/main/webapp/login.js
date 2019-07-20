@@ -52,8 +52,7 @@ function onLoginButtonClicked() {
 function displayUserName(user) {
     const profileEl = document.getElementById('profile');
     profileEl.textContent = user.name;
-    profileEl.textContent.style="text-align:center;";
-    profileEl.textContent.style="margin-left:40px;";
+    profileEl.textContent.style="text-align:left;";
     profileEl.textContent.style="vertical-align:bottom;";
 }
 

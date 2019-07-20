@@ -1,27 +1,21 @@
+DROP TABLE IF EXISTS topics cascade;
 DROP TABLE IF EXISTS curriculums cascade;
-DROP TABLE IF EXISTS sections cascade;
-DROP TABLE IF EXISTS pages cascade;
 DROP TABLE IF EXISTS users cascade;
 DROP TABLE IF EXISTS admins cascade;
 DROP TABLE IF EXISTS purchases cascade;
+
+create table topics(
+    topicId serial PRIMARY KEY,
+    title text
+);
 
 create table curriculums(
     curriculumId serial PRIMARY KEY,
     title text,
     price int,
-    content text
-);
-
-create table sections(
-    sectionId serial PRIMARY KEY,
-    curriculumId int,
-    FOREIGN KEY (curriculumId) REFERENCES curriculums(curriculumId)
-);
-
-create table pages(
-    pageId serial PRIMARY KEY,
-    sectionId int,
-    FOREIGN KEY (sectionId) REFERENCES sections(sectionId)
+    content text,
+    topicId int,
+    FOREIGN KEY (topicId) REFERENCES topics(topicId)
 );
 
 create table users(
@@ -56,3 +50,17 @@ INSERT INTO users(email, name, password) VALUES ('user1@curriculums.com', 'user1
 INSERT INTO users(email, name, password) VALUES ('user2@curriculums.com', 'user2', 'user2');
 INSERT INTO admins(email, name, password) VALUES ('admin1@curriculums.com', 'admin1', 'admin1');
 INSERT INTO admins(email, name, password) VALUES ('admin2@curriculums.com', 'admin2', 'admin2');
+
+INSERT INTO topics(title) VALUES ('javaScript');
+INSERT INTO topics(title) VALUES ('Python');
+INSERT INTO topics(title) VALUES ('SCRUM');
+
+INSERT INTO curriculums(title, price, content, topicId) VALUES ('What is JavaScript?', 0, 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript', 1);
+INSERT INTO curriculums(title, price, content, topicId) VALUES ('First splash into JavaScript', 5, 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash', 1);
+
+INSERT INTO curriculums(title, price, content, topicId) VALUES ('What is Python? Executive Summary', 0, '', 2);
+INSERT INTO curriculums(title, price, content, topicId) VALUES ('Getting Python, first steps', 5, 'https://realpython.com/python-first-steps/#2-getting-python-a-prelim', 2);
+
+INSERT INTO curriculums(title, price, content, topicId) VALUES ('What is SCRUM?', 0, 'https://www.scrum.org/resources/what-is-scrum', 3);
+INSERT INTO curriculums(title, price, content, topicId) VALUES ('Basic SCRUM Rules', 5, 'https://www.visual-paradigm.com/scrum/10-basic-scrum-rules/', 3);
+

@@ -13,6 +13,8 @@
         <script src="${registerScriptUrl}"></script>
         <c:url value="/profile.js" var="profileScriptUrl"/>
         <script src="${profileScriptUrl}"></script>
+        <c:url value="/credits.js" var="creditsScriptUrl"/>
+        <script src="${creditsScriptUrl}"></script>
     </head>
     <body>
         <div id = "login-page" class="">
@@ -39,25 +41,33 @@
                 <span class="navbar-toggle" id="js-navbar-toggle">
                     <i class="fas fa-bars"></i>
                 </span>
-                <a href="#" class="logo">Curriculums</a>
+                <a href="#" class="logo" style="vertical-align:middle;">Curriculums</a>
                 <ul class="main-nav" id="js-menu">
-
+                    
+                    <p style="color:gold;"><img src="https://cdn1.iconfinder.com/data/icons/cash-coin-essentials-colored/48/JD-09-512.png" style="width: 25px; vertical-align: bottom; text-align: left;"></p><div id="credits"></div>
                     <p class="nav-links"><img src="https://cdn2.iconfinder.com/data/icons/business-management-52/96/Artboard_20-512.png" style="width:25px; text-align: left; vertical-align: bottom;"><div id="profile"></div>
                     <li>
                         <p class="nav-links"><img src="https://cdn0.iconfinder.com/data/icons/cosmo-culture/40/books_1-512.png" style="width:25px; text-align: left; vertical-align: bottom;"> Library</p>
                     </li>
-                    <li>
+                    <!-- <li>
                         <p class="nav-links"><img src="https://image.flaticon.com/icons/png/512/130/130304.png" style="width:25px; text-align: left; vertical-align: bottom;"> Curriculums</p>
-                    </li>
+                    </li> -->
                     <li>
                         <p class="nav-links"><img src="https://cdn4.iconfinder.com/data/icons/money-13/24/Wallet-2-512.png" style="width:25px; vertical-align: bottom; text-align: left;"> Wallet</p>
                     </li>
                     <li>
                         <p class="nav-links"><img src="https://cdn1.iconfinder.com/data/icons/materia-arrows-symbols-vol-3/24/018_128_arrow_exit_logout-512.png" style="width:25px; text-align: left; vertical-align: bottom;"> Logout</p>
                     </li>
-                    
                 </ul>
             </nav>
+        </div>
+
+        <div id="topics" class="content hidden">
+            <table id="topics-table">
+                <tbody>
+                    <tr>Topics</tr>
+                </tbody>
+            </table>
         </div>
     </body>
 </html>

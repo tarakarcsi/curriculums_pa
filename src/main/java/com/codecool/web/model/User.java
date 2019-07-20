@@ -26,10 +26,11 @@ public class User extends AbstractModel {
         this.password = password;
     }
 
-    public User(String email, String name, String password) {
+    public User(String email, String name, String password, int credit) {
         this.email = email;
         this.password = password;
         this.name = name;
+        this.credit = credit;
     }
 
     public String getEmail() {

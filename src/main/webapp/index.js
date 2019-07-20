@@ -105,6 +105,8 @@ function onLoad() {
 
     navBarEl = document.getElementById('navbar');
     navBarEl.addEventListener('load', onProfileLoad);
+
+    navBarEl.addEventListener('load', onCreditsLoad);
     
 }
 
