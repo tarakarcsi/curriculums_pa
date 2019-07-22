@@ -20,8 +20,9 @@ function onLoginResponse() {
     if (this.status === OK) {
         const user = JSON.parse(this.responseText);
         setAuthorization(user);
-        showContents(['navbar']);
+        showContents(['navbar', 'topics']);
         onProfileLoad();
+        onTopicsLoad();
     } else {
         onOtherResponse(loginPageDivEl, this);
     }
@@ -60,6 +61,7 @@ function onProfileResponse() {
     if(this.status === OK) {
         const text = JSON.parse(this.responseText);
         displayUserName(text);
+        displayCredits(text);
     }
 }
 

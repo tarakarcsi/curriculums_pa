@@ -64,10 +64,10 @@
             </nav>
         </div>
 
-        <div id="topics" class="content">
+        <div id="topics" class="content hidden">
             <table id="topics-table">
-                <tbody id="topics-tbody">
-                    <tr>Topics</tr>
+                <div>Topics</div>
+                <tbody>
                 </tbody>
             </table>
         </div>

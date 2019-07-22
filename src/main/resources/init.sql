@@ -58,7 +58,7 @@ INSERT INTO topics(title) VALUES ('SCRUM');
 INSERT INTO curriculums(title, price, content, topicId) VALUES ('What is JavaScript?', 0, 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript', 1);
 INSERT INTO curriculums(title, price, content, topicId) VALUES ('First splash into JavaScript', 5, 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash', 1);
 
-INSERT INTO curriculums(title, price, content, topicId) VALUES ('What is Python? Executive Summary', 0, '', 2);
+INSERT INTO curriculums(title, price, content, topicId) VALUES ('What is Python? Executive Summary', 0, 'https://www.python.org/doc/essays/blurb/', 2);
 INSERT INTO curriculums(title, price, content, topicId) VALUES ('Getting Python, first steps', 5, 'https://realpython.com/python-first-steps/#2-getting-python-a-prelim', 2);
 
 INSERT INTO curriculums(title, price, content, topicId) VALUES ('What is SCRUM?', 0, 'https://www.scrum.org/resources/what-is-scrum', 3);

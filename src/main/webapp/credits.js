@@ -1,6 +1,9 @@
 function displayCredits(user){
     const creditsDivEl = document.getElementById("credits");
-    creditsDivEl.textContent = user.credit;
+    const pEl = document.createElement('p');
+    pEl.textContent = user.credit;
+    creditsDivEl.appendChild(pEl);
+    //creditsDivEl.textContent = user.credit;
 }
 
 function onCreditsResponse() {
