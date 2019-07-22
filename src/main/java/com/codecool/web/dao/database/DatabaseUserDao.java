@@ -45,4 +45,15 @@ public class DatabaseUserDao extends AbstractDao implements UserDao {
             executeInsert(preparedStatement);
         }
     }
+
+    public void updateUser(User user, int credit) throws SQLException {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("UPDATE users SET credit = ?" + "WHERE userId = ?")){
+            preparedStatement.setInt(1,credit);
+            preparedStatement.setInt(2, user.getId());
+            executeInsert(preparedStatement);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

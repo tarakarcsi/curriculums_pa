@@ -17,6 +17,8 @@
         <script src="${creditsScriptUrl}"></script>
         <c:url value="/topics.js" var="topicsScriptUrl"/>
         <script src="${topicsScriptUrl}"></script>
+        <c:url value="/wallet.js" var="walletScriptUrl"/>
+        <script src="${walletScriptUrl}"></script>
     </head>
     <body>
         <div id = "login-page" class="">
@@ -49,16 +51,13 @@
                     <p style="color:gold;"><img src="https://cdn1.iconfinder.com/data/icons/cash-coin-essentials-colored/48/JD-09-512.png" style="width: 25px; vertical-align: bottom; text-align: left;"></p><div id="credits"></div>
                     <p class="nav-links"><img src="https://cdn2.iconfinder.com/data/icons/business-management-52/96/Artboard_20-512.png" style="width:25px; text-align: left; vertical-align: bottom;"><div id="profile"></div>
                     <li>
-                        <p class="nav-links"><img src="https://cdn0.iconfinder.com/data/icons/cosmo-culture/40/books_1-512.png" style="width:25px; text-align: left; vertical-align: bottom;"> Library</p>
-                    </li>
-                    <!-- <li>
-                        <p class="nav-links"><img src="https://image.flaticon.com/icons/png/512/130/130304.png" style="width:25px; text-align: left; vertical-align: bottom;"> Curriculums</p>
-                    </li> -->
-                    <li>
-                        <p class="nav-links"><img src="https://cdn4.iconfinder.com/data/icons/money-13/24/Wallet-2-512.png" style="width:25px; vertical-align: bottom; text-align: left;"> Wallet</p>
+                        <p id="nav-library" class="nav-links"><img src="https://cdn0.iconfinder.com/data/icons/cosmo-culture/40/books_1-512.png" style="width:25px; text-align: left; vertical-align: bottom;"> Library</p>
                     </li>
                     <li>
-                        <p class="nav-links"><img src="https://cdn1.iconfinder.com/data/icons/materia-arrows-symbols-vol-3/24/018_128_arrow_exit_logout-512.png" style="width:25px; text-align: left; vertical-align: bottom;"> Logout</p>
+                        <p id="nav-wallet" class="nav-links"><img src="https://cdn4.iconfinder.com/data/icons/money-13/24/Wallet-2-512.png" style="width:25px; vertical-align: bottom; text-align: left;"> Wallet</p>
+                    </li>
+                    <li>
+                        <p id="nav-logout" class="nav-links"><img src="https://cdn1.iconfinder.com/data/icons/materia-arrows-symbols-vol-3/24/018_128_arrow_exit_logout-512.png" style="width:25px; text-align: left; vertical-align: bottom;"> Logout</p>
                     </li>
                 </ul>
             </nav>
@@ -70,6 +69,20 @@
                 <tbody>
                 </tbody>
             </table>
+        </div>
+        <div id="curriculums" class="content hidden">
+            <table id="curriculums-table">
+                <div>Curriculums</div>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div id="wallet" class="content hidden">
+            <p id="exchange-rate"> Current exchange rate from HUF to ¢ : <p style="display: inline" id="rate">1000 : 1</p></p>
+            <br>
+            <h3 style="color: white">Enter the amount of money(HUF) you want to upload:</h3>
+            <input type="text" id="amount">
+            <button id="upload-button" type="submit">Upload</button>
         </div>
     </body>
 </html>

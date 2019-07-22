@@ -212,3 +212,18 @@ body {
 tr:hover{
   background-color: rgb(255, 174, 97);
 }
+
+#wallet {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+#exchange-rate{
+  color:white;
+  font-size: 30px;
+}
+#rate {
+  color: gold;
+  font-size: 30px;
+}
+

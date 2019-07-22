@@ -111,6 +111,9 @@ function onLoad() {
     
     topicsDivEl = document.getElementById('topics');
     topicsDivEl.addEventListener('load', onTopicsLoad);
+
+    const walletEl = document.getElementById('nav-wallet');
+    walletEl.addEventListener('click', onWalletclicked);
 }
 
 document.addEventListener('DOMContentLoaded', onLoad);

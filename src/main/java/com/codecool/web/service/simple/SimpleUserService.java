@@ -15,6 +15,8 @@ public class SimpleUserService implements UserService {
     public SimpleUserService(UserDao userDao) {
     }
 
-
-
+    @Override
+    public void updateUser(User user, int credit) throws SQLException {
+        userDao.updateUser(user, credit);
+    }
 }
