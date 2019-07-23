@@ -45,7 +45,7 @@
                 <span class="navbar-toggle" id="js-navbar-toggle">
                     <i class="fas fa-bars"></i>
                 </span>
-                <a href="#" class="logo" style="vertical-align:middle;">Curriculums</a>
+                <a href="#" class="logo" style="vertical-align:middle;" onclick="onLoginButtonClicked()">Curriculums</a>
                 <ul class="main-nav" id="js-menu">
                     
                     <p style="color:gold;"><img src="https://cdn1.iconfinder.com/data/icons/cash-coin-essentials-colored/48/JD-09-512.png" style="width: 25px; vertical-align: bottom; text-align: left;"></p><div id="credits"></div>

@@ -1,6 +1,7 @@
 function displayCredits(user){
     const creditsDivEl = document.getElementById("credits");
     const pEl = document.createElement('p');
+    removeAllChildren(creditsDivEl);
     pEl.textContent = user.credit;
     creditsDivEl.appendChild(pEl);
     //creditsDivEl.textContent = user.credit;

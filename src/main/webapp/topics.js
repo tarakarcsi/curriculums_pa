@@ -26,6 +26,7 @@ function onTopicsResponse() {
 function displayTopics(topics){
     topicsTableEl = document.getElementById('topics-table');
     topicsTableBodyEl = topicsTableEl.querySelector('tbody');
+    removeAllChildren(topicsTableBodyEl);
 
     for(let i = 0; i<topics.length; i++) {
         const topic = topics[i];

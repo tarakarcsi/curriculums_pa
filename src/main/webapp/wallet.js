@@ -23,8 +23,35 @@ function onUploadButtonClicked() {
 function onUploadResponse() {
     if(this.status === OK) {
         const text = JSON.parse(this.responseText);
+
     } else {
         const buttonEl = document.getElementById('upload-button');
         onOtherResponse(buttonEl, this);
     }
+}
+
+function onUpdateResponse() {
+    if(this.status === OK) {
+        const text = JSON.parse(this.responseText);
+        updateCredits(text);
+    }
+}
+
+function updateCredits(user) {
+    const creditsDivEl = document.getElementById("credits");
+    removeAllChildren(creditsDivEl);
+    const pEl = creditsDivEl.querySelector('p');
+    debugger;
+    pEl.textContent = parseInt(pEl.textContent) + user.credit;
+
+}
+
+function onUpdateLoad() {
+
+    const xhr = new XMLHttpRequest();
+    xhr.addEventListener('load', onUploadResponse);
+    xhr.addEventListener('error', onNetworkError);
+
+    xhr.open('GET', 'user');
+    xhr.send();
 }
