@@ -22,7 +22,7 @@ create table users(
     userId serial primary key,
     email varchar(40) not null,
     name varchar(40),
-    credit int,
+    credit numeric default 0,
     password text not null,
     curriculums int,
     FOREIGN KEY (curriculums) REFERENCES curriculums(curriculumId)
@@ -44,13 +44,6 @@ create table purchases(
 );
 
 
-
-
-INSERT INTO users(email, name, password) VALUES ('user1@curriculums.com', 'user1', 'user1');
-INSERT INTO users(email, name, password) VALUES ('user2@curriculums.com', 'user2', 'user2');
-INSERT INTO admins(email, name, password) VALUES ('admin1@curriculums.com', 'admin1', 'admin1');
-INSERT INTO admins(email, name, password) VALUES ('admin2@curriculums.com', 'admin2', 'admin2');
-
 INSERT INTO topics(title) VALUES ('javaScript');
 INSERT INTO topics(title) VALUES ('Python');
 INSERT INTO topics(title) VALUES ('SCRUM');
@@ -63,4 +56,11 @@ INSERT INTO curriculums(title, price, content, topicId) VALUES ('Getting Python,
 
 INSERT INTO curriculums(title, price, content, topicId) VALUES ('What is SCRUM?', 0, 'https://www.scrum.org/resources/what-is-scrum', 3);
 INSERT INTO curriculums(title, price, content, topicId) VALUES ('Basic SCRUM Rules', 5, 'https://www.visual-paradigm.com/scrum/10-basic-scrum-rules/', 3);
+
+INSERT INTO users(email, name, password) VALUES ('user1@curriculums.com', 'user1', 'user1');
+INSERT INTO users(email, name, password) VALUES ('user2@curriculums.com', 'user2', 'user2');
+INSERT INTO admins(email, name, password) VALUES ('admin1@curriculums.com', 'admin1', 'admin1');
+INSERT INTO admins(email, name, password) VALUES ('admin2@curriculums.com', 'admin2', 'admin2');
+
+
 

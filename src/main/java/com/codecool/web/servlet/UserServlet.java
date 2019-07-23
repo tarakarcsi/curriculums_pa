@@ -29,7 +29,7 @@ public class UserServlet extends AbstractServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         try (Connection connection = getConnection(req.getServletContext())) {
             UserDao userDao = new DatabaseUserDao(connection);
             UserService userService = new SimpleUserService(userDao);
@@ -37,11 +37,11 @@ public class UserServlet extends AbstractServlet {
             User user = (User) req.getSession().getAttribute("user");
             int credit = Integer.parseInt(req.getParameter("credit"));
 
-            userService.updateUser(user, credit);
+            userService.updateUser(user, credit / 1000);
 
             sendMessage(resp, HttpServletResponse.SC_OK, user);
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            handleSqlError(resp, ex);
         }
     }
 }

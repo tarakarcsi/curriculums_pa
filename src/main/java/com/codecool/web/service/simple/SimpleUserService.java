@@ -10,9 +10,10 @@ import java.sql.SQLException;
 
 public class SimpleUserService implements UserService {
 
-    private DatabaseUserDao userDao;
+    private UserDao userDao;
 
     public SimpleUserService(UserDao userDao) {
+        this.userDao = userDao;
     }
 
     @Override

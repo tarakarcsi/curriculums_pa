@@ -29,11 +29,12 @@ public class DatabaseUserDao extends AbstractDao implements UserDao {
     }
 
     private User fetchUser(ResultSet resultSet) throws SQLException {
+        int id = resultSet.getInt("userId");
         String email = resultSet.getString("email");
         String password = resultSet.getString("password");
         String name = resultSet.getString("name");
         int credit = resultSet.getInt("credit");
-        return new User(email, name, password, credit);
+        return new User(id, email, name, password, credit);
     }
 
     public void addNewUser(String email, String name, String password) throws SQLException {
@@ -46,14 +47,12 @@ public class DatabaseUserDao extends AbstractDao implements UserDao {
         }
     }
 
+    @Override
     public void updateUser(User user, int credit) throws SQLException {
-        try (PreparedStatement preparedStatement = connection.prepareStatement("UPDATE users SET credit = ?" + "WHERE userId = ?")){
+        try (PreparedStatement preparedStatement = connection.prepareStatement("UPDATE users SET credit = ? WHERE userId = ?")){
             preparedStatement.setInt(1,credit);
             preparedStatement.setInt(2, user.getId());
-            executeInsert(preparedStatement);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
+            preparedStatement.executeUpdate();
         }
     }
 }

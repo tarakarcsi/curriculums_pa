@@ -81,8 +81,8 @@
             <p id="exchange-rate"> Current exchange rate from HUF to ¢ : <p style="display: inline" id="rate">1000 : 1</p></p>
             <br>
             <h3 style="color: white">Enter the amount of money(HUF) you want to upload:</h3>
-            <input type="text" id="amount">
-            <button id="upload-button" type="submit">Upload</button>
+            <input id="amount" name="amount">
+            <button id="upload-button" type="submit" onclick="onUploadButtonClicked()">Upload</button>
         </div>
     </body>
 </html>

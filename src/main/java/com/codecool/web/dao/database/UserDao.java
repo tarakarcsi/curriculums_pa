@@ -8,4 +8,6 @@ public interface UserDao {
 
     User findUserByEmail(String email) throws SQLException;
     void addNewUser(String email, String name, String password) throws SQLException;
+
+    void updateUser(User user, int credit) throws SQLException;
 }
