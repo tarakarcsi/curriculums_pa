@@ -34,6 +34,7 @@ function displayTopics(topics){
 
         topicTitleEl.textContent = topic.title;
         topicTitleEl.setAttribute('id', topic.id);
+        topicTitleEl.addEventListener('click', function(){onTopicClicked(topic.id)});
 
         const trEl = document.createElement('tr');
         trEl.appendChild(topicTitleEl);

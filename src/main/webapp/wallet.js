@@ -23,7 +23,6 @@ function onUploadButtonClicked() {
 function onUploadResponse() {
     if(this.status === OK) {
         const text = JSON.parse(this.responseText);
-
     } else {
         const buttonEl = document.getElementById('upload-button');
         onOtherResponse(buttonEl, this);
@@ -41,8 +40,8 @@ function updateCredits(user) {
     const creditsDivEl = document.getElementById("credits");
     removeAllChildren(creditsDivEl);
     const pEl = creditsDivEl.querySelector('p');
-    debugger;
-    pEl.textContent = parseInt(pEl.textContent) + user.credit;
+    const number = parseInt(pEl.textContent) + user.credit;
+    pEl.textContent = number.toString();
 
 }
 

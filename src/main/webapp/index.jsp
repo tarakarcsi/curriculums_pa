@@ -19,6 +19,8 @@
         <script src="${topicsScriptUrl}"></script>
         <c:url value="/wallet.js" var="walletScriptUrl"/>
         <script src="${walletScriptUrl}"></script>
+        <c:url value="/curriculums.js" var="curriculumsScriptUrl"/>
+        <script src="${curriculumsScriptUrl}"></script>
     </head>
     <body>
         <div id = "login-page" class="">

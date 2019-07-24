@@ -209,7 +209,7 @@ body {
   font-size: 30px;
   padding: 0px !important;
 }
-tr:hover{
+#topics tr:hover{
   background-color: rgb(255, 174, 97);
 }
 
@@ -227,3 +227,17 @@ tr:hover{
   font-size: 30px;
 }
 
+#curriculums {
+  float: left;
+  width: 40%;
+  border: 1px solid rgb(62, 255, 3);
+  color: white;
+  font-size: 30px;
+  font-family: arial black;
+  font-size: 30px;
+  padding: 0px !important;
+}
+
+#cur-price {
+  text-align: right;
+}

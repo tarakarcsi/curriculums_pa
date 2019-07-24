@@ -114,6 +114,8 @@ function onLoad() {
 
     const walletEl = document.getElementById('nav-wallet');
     walletEl.addEventListener('click', onWalletclicked);
+
+    
 }
 
 document.addEventListener('DOMContentLoaded', onLoad);
