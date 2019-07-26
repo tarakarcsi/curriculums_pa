@@ -15,13 +15,6 @@ public class Curriculum extends AbstractModel {
         this.topicId = topicId;
     }
 
-    public Curriculum(String title, String content, int price, int topicId) {
-        this.title = title;
-        this.content = content;
-        this.price = price;
-        this.topicId = topicId;
-    }
-
     public String getTitle() {
         return title;
     }

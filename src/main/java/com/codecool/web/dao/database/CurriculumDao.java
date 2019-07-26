@@ -8,5 +8,6 @@ import java.util.List;
 public interface CurriculumDao {
 
     List<Curriculum> findCurriculumsByTopic(int topicId) throws SQLException;
+    Curriculum getCurriculumById(int id) throws SQLException;
 
 }

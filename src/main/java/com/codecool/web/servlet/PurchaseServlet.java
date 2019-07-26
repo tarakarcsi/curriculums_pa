@@ -18,23 +18,32 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.List;
 
-@WebServlet("/curriculums")
-public class CurriculumServlet extends AbstractServlet {
+@WebServlet("/purchase")
+public class PurchaseServlet extends AbstractServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         try(Connection connection = getConnection(req.getServletContext())) {
+            UserDao userdao = new DatabaseUserDao(connection);
+            UserService userService = new SimpleUserService(userdao);
             CurriculumDao curriculumDao = new DatabaseCurriculumDao(connection);
             CurriculumService curriculumService = new SimpleCurriculumService(curriculumDao);
 
-            int topicId = Integer.parseInt(req.getParameter("topicId"));
+            int id = Integer.parseInt(req.getParameter("id"));
+            Curriculum curriculum = curriculumService.getCurriculumById(id);
+            User user = (User) req.getSession().getAttribute("user");
 
-            List<Curriculum> curriculumList = curriculumService.getCurriculumsByTopic(topicId);
+            int price = curriculum.getPrice();
+            int credit = user.getCredit();
 
-            sendMessage(resp, HttpServletResponse.SC_OK, curriculumList);
+            if((credit - price) >= 0) {
+                userService.updateUser(user, credit-price);
+                sendMessage(resp, HttpServletResponse.SC_OK, null);
+            }else {
+                sendMessage(resp, HttpServletResponse.SC_BAD_REQUEST, null);
+            }
+
 
         } catch (SQLException e) {
             e.printStackTrace();

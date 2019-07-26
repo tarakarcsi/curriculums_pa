@@ -8,4 +8,5 @@ import java.util.List;
 public interface CurriculumService {
 
     List<Curriculum> getCurriculumsByTopic(int topicId) throws SQLException;
+    Curriculum getCurriculumById(int id) throws SQLException;
 }

@@ -19,4 +19,9 @@ public class SimpleCurriculumService implements CurriculumService {
     public List<Curriculum> getCurriculumsByTopic(int topicId) throws SQLException {
         return curriculumDao.findCurriculumsByTopic(topicId);
     }
+
+    @Override
+    public Curriculum getCurriculumById(int id) throws SQLException {
+        return curriculumDao.getCurriculumById(id);
+    }
 }

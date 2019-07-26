@@ -16,7 +16,6 @@ function onTopicsLoad() {
 function onTopicsResponse() {
     if(this.status === OK) {
         const text = JSON.parse(this.responseText);
-        console.log(text);
         displayTopics(text);
     }else{
         console.log('??');

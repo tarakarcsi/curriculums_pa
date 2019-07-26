@@ -19,8 +19,9 @@ function onCurriculumsResponse() {
     if(this.status === OK) {
         const text = JSON.parse(this.responseText) 
         displayCurriculums(text);
+        console.log(text);
     }else {
-        const curriculumDivEl = doc.getElementById('curriculums');
+        const curriculumDivEl = document.getElementById('curriculums');
         onOtherResponse(curriculumDivEl, this);
     }
 }
@@ -32,10 +33,11 @@ function displayCurriculums(curriculums) {
     for(let i = 0; i < curriculums.length; i++) {
         
         const curriculum = curriculums[i];
+        console.log(curriculum.id);
         const curriculumTitleEl = document.createElement('td');
         const priceDivEl = document.createElement('div');
         priceDivEl.setAttribute('id', 'cur-price');
-        priceDivEl.textContent = "(" + curriculum.price;
+        priceDivEl.textContent = curriculum.price;
         priceDivEl.style.textAlign = "right";
         priceDivEl.style.color = "gold";
 
@@ -45,27 +47,22 @@ function displayCurriculums(curriculums) {
         creditIconEl.style.verticalAlign = "bottom";
         priceDivEl.appendChild(creditIconEl);
 
+        const buyButtonEl = document.createElement('img');
+        buyButtonEl.setAttribute('src', 'https://icons-for-free.com/iconfiles/png/512/buy+citycons+mall+shopping+icon-1320136423977087098.png');
+        buyButtonEl.style.width = "35px";
+        buyButtonEl.style.verticalAlign = "bottom";
+        buyButtonEl.style.alignItems = "flex-end";
+        buyButtonEl.addEventListener('click', function(){onBuyButtonLoad(curriculum.id)});
+
         curriculumTitleEl.textContent = curriculum.title;
         curriculumTitleEl.setAttribute('id', curriculum.id);
 
         const trEl = document.createElement('tr');
         trEl.appendChild(curriculumTitleEl);
         trEl.appendChild(priceDivEl);
+        trEl.appendChild(buyButtonEl);
 
         curriculumsTbodyEl.appendChild(trEl);
     }
 
-}
-
-
-
-
-function onCurriculumsLoad() {
-    const xhr = new XMLHttpRequest();
-
-
-    xhr.addEventListener('error', onNetworkError);
-
-    xhr.open('GET', 'curriculums');
-    xhr.send();
 }
