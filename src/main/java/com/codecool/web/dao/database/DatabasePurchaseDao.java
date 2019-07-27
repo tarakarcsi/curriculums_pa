@@ -11,7 +11,7 @@ import java.util.List;
 
 public class DatabasePurchaseDao extends AbstractDao implements PurchaseDao {
 
-    DatabasePurchaseDao(Connection connection) {
+    public DatabasePurchaseDao(Connection connection) {
         super(connection);
     }
 
