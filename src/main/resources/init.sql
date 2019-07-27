@@ -63,4 +63,28 @@ INSERT INTO admins(email, name, password) VALUES ('admin1@curriculums.com', 'adm
 INSERT INTO admins(email, name, password) VALUES ('admin2@curriculums.com', 'admin2', 'admin2');
 
 
+CREATE TRIGGER check_purchase
+AFTER INSERT ON purchases FOR EACH ROW
+EXECUTE PROCEDURE check_purchase();
 
+CREATE OR REPLACE FUNCTION check_purchase()
+RETURNS TRIGGER AS '
+BEGIN
+    IF EXISTS (SELECT * FROM purchases WHERE
+    purchaseId < (SELECT max(purchaseId) from purchases) and
+	userId = (SELECT userId from purchases where purchaseId=(SELECT max(purchaseId) from purchases)) and
+	curriculumId = (SELECT curriculumId from purchases where purchaseId=(SELECT max(purchaseId) from purchases)))
+	THEN
+        DELETE from purchases where purchaseId=(SELECT max(purchaseId) from purchases);
+    END IF;
+    return new;
+END;
+' LANGUAGE plpgsql;
+
+create or replace function total_cart_price()
+returns trigger as '
+begin
+update carts set price = (select sum(cart_items.price) from cart_items join carts on cart_items.cart_id = carts.id);
+return new;
+end;
+' language plpgsql;

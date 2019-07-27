@@ -23,6 +23,8 @@ function onUploadButtonClicked() {
 function onUploadResponse() {
     if(this.status === OK) {
         const text = JSON.parse(this.responseText);
+        alert('Money exchanged to credits successfully!');
+        onLoginButtonClicked();
     } else {
         const buttonEl = document.getElementById('upload-button');
         onOtherResponse(buttonEl, this);
