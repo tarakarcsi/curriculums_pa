@@ -1,5 +1,6 @@
 package com.codecool.web.dao.database;
 
+import com.codecool.web.model.Curriculum;
 import com.codecool.web.model.Purchase;
 
 import java.sql.Connection;
@@ -16,16 +17,16 @@ public class DatabasePurchaseDao extends AbstractDao implements PurchaseDao {
     }
 
     @Override
-    public List<Purchase> getPurchasesByUserId(int userId) throws SQLException {
-        String sql = "SELECT * FROM purchases WHERE userId = ?;";
-        List<Purchase> purchases = new ArrayList<>();
+    public List<Curriculum> getCurriculumsByUserId(int userId) throws SQLException {
+        String sql = "SELECT * from curriculums INNER JOIN purchases ON curriculums.curriculumId = purchases.curriculumId WHERE userId = ?;";
+        List<Curriculum> curriculums = new ArrayList<>();
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, userId);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
-                    purchases.add(fetchPurchase(resultSet));
+                    curriculums.add(fetchCurriculum(resultSet));
                 }
-                return purchases;
+                return curriculums;
             }
         }
     }
@@ -45,5 +46,14 @@ public class DatabasePurchaseDao extends AbstractDao implements PurchaseDao {
         int userId = resultSet.getInt("userId");
         int curriculumId = resultSet.getInt("curriculumId");
         return new Purchase(purchaseId, userId, curriculumId);
+    }
+
+    public Curriculum fetchCurriculum(ResultSet resultSet) throws SQLException {
+        int id = resultSet.getInt("curriculumId");
+        String title = resultSet.getString("title");
+        String content = resultSet.getString("content");
+        int price = resultSet.getInt("price");
+        int topicId = resultSet.getInt("topicId");
+        return new Curriculum(id, title, content, price, topicId);
     }
 }

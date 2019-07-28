@@ -33,7 +33,6 @@ function displayCurriculums(curriculums) {
     for(let i = 0; i < curriculums.length; i++) {
         
         const curriculum = curriculums[i];
-        console.log(curriculum.id);
         const curriculumTitleEl = document.createElement('td');
         const priceDivEl = document.createElement('div');
         priceDivEl.setAttribute('id', 'cur-price');

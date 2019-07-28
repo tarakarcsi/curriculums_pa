@@ -1,6 +1,7 @@
 package com.codecool.web.service.simple;
 
 import com.codecool.web.dao.database.PurchaseDao;
+import com.codecool.web.model.Curriculum;
 import com.codecool.web.model.Purchase;
 import com.codecool.web.service.PurchaseService;
 
@@ -16,8 +17,8 @@ public class SimplePurchaseService implements PurchaseService {
     }
 
     @Override
-    public List<Purchase> getPurchasesByUserId(int userId) throws SQLException {
-        return purchaseDao.getPurchasesByUserId(userId);
+    public List<Curriculum> getCurriculumsByUserId(int userId) throws SQLException {
+        return purchaseDao.getCurriculumsByUserId(userId);
     }
 
     @Override

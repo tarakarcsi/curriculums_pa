@@ -1,14 +1,13 @@
 package com.codecool.web.servlet;
 
-import com.codecool.web.dao.database.CurriculumDao;
-import com.codecool.web.dao.database.DatabaseCurriculumDao;
-import com.codecool.web.dao.database.DatabaseUserDao;
-import com.codecool.web.dao.database.UserDao;
+import com.codecool.web.dao.database.*;
 import com.codecool.web.model.Curriculum;
 import com.codecool.web.model.User;
 import com.codecool.web.service.CurriculumService;
+import com.codecool.web.service.PurchaseService;
 import com.codecool.web.service.UserService;
 import com.codecool.web.service.simple.SimpleCurriculumService;
+import com.codecool.web.service.simple.SimplePurchaseService;
 import com.codecool.web.service.simple.SimpleUserService;
 
 import javax.servlet.ServletException;
@@ -29,6 +28,8 @@ public class PurchaseServlet extends AbstractServlet {
             UserService userService = new SimpleUserService(userdao);
             CurriculumDao curriculumDao = new DatabaseCurriculumDao(connection);
             CurriculumService curriculumService = new SimpleCurriculumService(curriculumDao);
+            PurchaseDao purchaseDao = new DatabasePurchaseDao(connection);
+            PurchaseService purchaseService = new SimplePurchaseService(purchaseDao);
 
             int id = Integer.parseInt(req.getParameter("id"));
             Curriculum curriculum = curriculumService.getCurriculumById(id);
@@ -39,6 +40,7 @@ public class PurchaseServlet extends AbstractServlet {
 
             if((credit - price) >= 0) {
                 userService.updateUser(user, credit-price);
+                purchaseService.addNewPurchase(user.getId(), id);
                 sendMessage(resp, HttpServletResponse.SC_OK, null);
             }else {
                 sendMessage(resp, HttpServletResponse.SC_BAD_REQUEST, null);

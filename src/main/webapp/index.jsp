@@ -23,6 +23,8 @@
         <script src="${curriculumsScriptUrl}"></script>
         <c:url value="/purchase.js" var="purchaseScriptUrl"/>
         <script src="${purchaseScriptUrl}"></script>
+        <c:url value="/library.js" var="libraryScriptUrl"/>
+        <script src="${libraryScriptUrl}"></script>
     </head>
     <body>
         <div id = "login-page" class="">
@@ -61,7 +63,7 @@
                         <p id="nav-wallet" class="nav-links"><img src="https://cdn4.iconfinder.com/data/icons/money-13/24/Wallet-2-512.png" style="width:25px; vertical-align: bottom; text-align: left;"> Wallet</p>
                     </li>
                     <li>
-                        <p id="nav-logout" class="nav-links"><img src="https://cdn1.iconfinder.com/data/icons/materia-arrows-symbols-vol-3/24/018_128_arrow_exit_logout-512.png" style="width:25px; text-align: left; vertical-align: bottom;"> Logout</p>
+                        <p id="nav-logout" class="nav-links" onclick="onLogoutClicked()"><img src="https://cdn1.iconfinder.com/data/icons/materia-arrows-symbols-vol-3/24/018_128_arrow_exit_logout-512.png" style="width:25px; text-align: left; vertical-align: bottom;"> Logout</p>
                     </li>
                 </ul>
             </nav>
@@ -87,6 +89,12 @@
             <h3 style="color: white">Enter the amount of money(HUF) you want to upload:</h3>
             <input id="amount" name="amount">
             <button id="upload-button" type="submit" onclick="onUploadButtonClicked()">Upload</button>
+        </div>
+        <div id="library" class="content hidden">
+            <div>My curriculums</div>
+            <table id="user-curriculums">
+                <tbody></tbody>
+            </table>
         </div>
     </body>
 </html>

@@ -73,3 +73,7 @@ function onProfileLoad() {
     xhr.open('GET', 'user');
     xhr.send();
 }
+
+function onLogoutClicked() {
+    showContents(['login-page']);
+}

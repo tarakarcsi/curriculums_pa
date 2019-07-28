@@ -241,3 +241,14 @@ body {
 #cur-price {
   text-align: right;
 }
+
+#library {
+  float: left;
+  width: 40%;
+  border: 1px solid rgb(62, 255, 3);
+  color: white;
+  font-size: 30px;
+  font-family: arial black;
+  font-size: 30px;
+  padding: 0px !important;
+}

@@ -80,11 +80,3 @@ BEGIN
     return new;
 END;
 ' LANGUAGE plpgsql;
-
-create or replace function total_cart_price()
-returns trigger as '
-begin
-update carts set price = (select sum(cart_items.price) from cart_items join carts on cart_items.cart_id = carts.id);
-return new;
-end;
-' language plpgsql;
