@@ -24,6 +24,7 @@ create table users(
     name varchar(40),
     credit numeric default 0,
     password text not null,
+    role boolean,
     curriculums int,
     FOREIGN KEY (curriculums) REFERENCES curriculums(curriculumId)
 );

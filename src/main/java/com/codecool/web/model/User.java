@@ -7,12 +7,13 @@ public class User extends AbstractModel {
     private int credit;
     private String password;
     private String name;
+    private boolean role;
 
-
-    public User(int userId, int credit, String password) {
+    public User(int userId, int credit, String password, boolean role) {
         super(userId);
         this.credit = credit;
         this.password = password;
+        this.role = role;
     }
 
     public User(String email, String name, String password ) {
@@ -48,6 +49,10 @@ public class User extends AbstractModel {
 
     public String getName() {
         return name;
+    }
+
+    public boolean isRole() {
+        return role;
     }
 }
 

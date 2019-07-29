@@ -1,5 +1,3 @@
-
-
 package com.codecool.web.servlet;
 
 import com.codecool.web.dao.database.DatabaseUserDao;

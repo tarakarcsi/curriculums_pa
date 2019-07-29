@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseUserDao extends AbstractDao implements UserDao {
 
@@ -53,6 +55,21 @@ public class DatabaseUserDao extends AbstractDao implements UserDao {
             preparedStatement.setInt(1,credit);
             preparedStatement.setInt(2, user.getId());
             preparedStatement.executeUpdate();
+        }
+    }
+
+    @Override
+    public List<User> findbyRole(boolean role) throws SQLException {
+        String sql = "SELECT * FROM users WHERE role = ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setBoolean(1, role);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                List<User> users = new ArrayList<>();
+                while (resultSet.next()) {
+                    users.add(fetchUser(resultSet));
+                }
+                return users;
+            }
         }
     }
 }
