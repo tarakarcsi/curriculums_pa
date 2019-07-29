@@ -5,7 +5,7 @@ function displayUsersCurriculums(curriculums) { //displaying curriculums bought 
     userCurriculumsTableEl = document.getElementById('user-curriculums');
     userCurriculumsTbodyEl = userCurriculumsTableEl.querySelector('tbody');
 
-    //removeAllChildren(userCurriculumsTbodyEl);
+    removeAllChildren(userCurriculumsTbodyEl);
     
     for(let i = 0; i < curriculums.length; i++) {
         const curriculum = curriculums[i];

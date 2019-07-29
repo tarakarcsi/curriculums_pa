@@ -38,15 +38,19 @@ public class PurchaseServlet extends AbstractServlet {
             int price = curriculum.getPrice();
             int credit = user.getCredit();
 
-            if((credit - price) >= 0) {
-                userService.updateUser(user, credit-price);
-                purchaseService.addNewPurchase(user.getId(), id);
-                sendMessage(resp, HttpServletResponse.SC_OK, null);
+            if(!purchaseService.checkIfPurchased(curriculum.getId(), user.getId())) {
+                if ((credit - price) >= 0) {
+                    userService.updateUser(user, credit - price);
+                    purchaseService.addNewPurchase(user.getId(), id);
+                    sendMessage(resp, HttpServletResponse.SC_OK, null);
+                } else {
+                    String noMoneyMessage = "Not enough credits!";
+                    sendMessage(resp, HttpServletResponse.SC_BAD_REQUEST, noMoneyMessage);
+                }
             }else {
-                sendMessage(resp, HttpServletResponse.SC_BAD_REQUEST, null);
+                String alreadyPurchasedMessage = "Curriculum already in your Library!";
+                sendMessage(resp, HttpServletResponse.SC_BAD_REQUEST, alreadyPurchasedMessage);
             }
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }

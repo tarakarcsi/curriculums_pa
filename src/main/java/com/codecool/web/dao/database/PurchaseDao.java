@@ -9,6 +9,7 @@ import java.util.List;
 public interface PurchaseDao {
     List<Curriculum> getCurriculumsByUserId(int userId) throws SQLException;
     void addNewPurchase(int userId, int curriculumId) throws SQLException;
+    boolean checkIfPurchased(int curriculumID, int userId) throws SQLException;
 }
 
 

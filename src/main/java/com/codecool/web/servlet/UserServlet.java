@@ -37,7 +37,7 @@ public class UserServlet extends AbstractServlet {
             User user = (User) req.getSession().getAttribute("user");
             int credit = Integer.parseInt(req.getParameter("credit"));
 
-            userService.updateUser(user, credit / 1000);
+            userService.updateUser(user, user.getCredit() + credit / 1000);
 
             sendMessage(resp, HttpServletResponse.SC_OK, user);
         } catch (SQLException ex) {

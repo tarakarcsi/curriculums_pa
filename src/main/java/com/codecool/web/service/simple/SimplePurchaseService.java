@@ -25,4 +25,9 @@ public class SimplePurchaseService implements PurchaseService {
     public void addNewPurchase(int userId, int curriculumId) throws SQLException {
         purchaseDao.addNewPurchase(userId, curriculumId);
     }
+
+    @Override
+    public boolean checkIfPurchased(int curriculumID, int userId) throws SQLException {
+        return purchaseDao.checkIfPurchased(curriculumID, userId);
+    }
 }

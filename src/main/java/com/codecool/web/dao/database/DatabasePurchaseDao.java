@@ -17,6 +17,21 @@ public class DatabasePurchaseDao extends AbstractDao implements PurchaseDao {
     }
 
     @Override
+    public boolean checkIfPurchased(int curriculumId, int userId) throws SQLException {
+        String sql = "SELECT * FROM purchases WHERE curriculumId = ? AND userId = ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, curriculumId);
+            statement.setInt(2, userId);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    return true;
+                }else
+                    return false;
+            }
+        }
+    }
+
+    @Override
     public List<Curriculum> getCurriculumsByUserId(int userId) throws SQLException {
         String sql = "SELECT * from curriculums INNER JOIN purchases ON curriculums.curriculumId = purchases.curriculumId WHERE userId = ?;";
         List<Curriculum> curriculums = new ArrayList<>();

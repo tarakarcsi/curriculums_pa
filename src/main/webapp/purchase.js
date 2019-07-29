@@ -17,7 +17,7 @@ function onBuyButtonResponse() {
         alert('Curriculum successfully added to your Library!')
         onLoginButtonClicked();
     }else{
-        alert('Purchase failed!');
+        alert(this.responseText);
         onOtherResponse(buyButtonEl, this);
     }
 }
