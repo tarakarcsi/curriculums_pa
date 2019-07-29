@@ -7,6 +7,7 @@ import com.codecool.web.service.UserService;
 import com.codecool.web.service.exception.ServiceException;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class SimpleUserService implements UserService {
 
@@ -19,5 +20,13 @@ public class SimpleUserService implements UserService {
     @Override
     public void updateUser(User user, int credit) throws SQLException {
         userDao.updateUser(user, credit);
+    }
+
+    public List<User> getByRole(String role) throws SQLException, ServiceException {
+        try {
+            return userDao.findByRole(Boolean.parseBoolean(role));
+        } catch (IllegalArgumentException ex) {
+            throw new ServiceException(ex.getMessage());
+        }
     }
 }

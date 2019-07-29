@@ -58,10 +58,10 @@ INSERT INTO curriculums(title, price, content, topicId) VALUES ('Getting Python,
 INSERT INTO curriculums(title, price, content, topicId) VALUES ('What is SCRUM?', 0, 'https://www.scrum.org/resources/what-is-scrum', 3);
 INSERT INTO curriculums(title, price, content, topicId) VALUES ('Basic SCRUM Rules', 5, 'https://www.visual-paradigm.com/scrum/10-basic-scrum-rules/', 3);
 
-INSERT INTO users(email, name, password) VALUES ('user1@curriculums.com', 'user1', 'user1');
-INSERT INTO users(email, name, password) VALUES ('user2@curriculums.com', 'user2', 'user2');
-INSERT INTO admins(email, name, password) VALUES ('admin1@curriculums.com', 'admin1', 'admin1');
-INSERT INTO admins(email, name, password) VALUES ('admin2@curriculums.com', 'admin2', 'admin2');
+INSERT INTO users(email, name, password, role) VALUES ('user1@curriculums.com', 'user1', 'user1', false);
+INSERT INTO users(email, name, password, role) VALUES ('user2@curriculums.com', 'user2', 'user2', false);
+INSERT INTO users(email, name, password, role, credit) VALUES ('admin1@curriculums.com', 'admin1', 'admin1', true, 10000);
+INSERT INTO users(email, name, password, rolec, credit) VALUES ('admin2@curriculums.com', 'admin2', 'admin2', true, 10000);
 
 
 CREATE TRIGGER check_purchase

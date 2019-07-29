@@ -59,7 +59,7 @@ public class DatabaseUserDao extends AbstractDao implements UserDao {
     }
 
     @Override
-    public List<User> findbyRole(boolean role) throws SQLException {
+    public List<User> findByRole(boolean role) throws SQLException {
         String sql = "SELECT * FROM users WHERE role = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setBoolean(1, role);

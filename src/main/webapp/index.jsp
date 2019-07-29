@@ -96,5 +96,14 @@
                 <tbody></tbody>
             </table>
         </div>
+        <div id="admin-content" class="content hidden">
+            <form id="add-curriculum" onsubmit="return false;">
+                Title: <input type="text" name="add-title">
+                URL: <input type="text" name="add-url">
+                Price: <input type="text" name="add-price">
+                TopicId: <input type="text" name="add-topicId">
+                <button id="add-new-curriculum" type="submit" onclick="addNewCurriculum()">Add</button>
+            </form>
+        </div>
     </body>
 </html>
