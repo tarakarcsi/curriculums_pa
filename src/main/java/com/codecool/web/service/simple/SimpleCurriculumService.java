@@ -24,4 +24,9 @@ public class SimpleCurriculumService implements CurriculumService {
     public Curriculum getCurriculumById(int id) throws SQLException {
         return curriculumDao.getCurriculumById(id);
     }
+
+    @Override
+    public void addCurriculum(String title, String content, int price, int topicId) throws SQLException {
+        curriculumDao.addCurriculum(title, content, price, topicId);
+    }
 }

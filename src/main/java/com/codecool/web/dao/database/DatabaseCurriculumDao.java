@@ -53,4 +53,16 @@ public class DatabaseCurriculumDao extends AbstractDao implements CurriculumDao 
         int topicId = resultSet.getInt("topicId");
         return new Curriculum(id, title, content, price, topicId);
     }
+
+    @Override
+    public void addCurriculum(String title, String content, int price, int topicId) throws SQLException {
+        String sql = "INSERT INTO curriculums (title, content, price, topicId) VALUES (?, ?, ?, ?)";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, title);
+            statement.setString(2, content);
+            statement.setInt(3, price);
+            statement.setInt(4, topicId);
+            statement.execute();
+        }
+    }
 }

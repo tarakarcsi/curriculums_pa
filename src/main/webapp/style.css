@@ -252,3 +252,12 @@ body {
   font-size: 30px;
   padding: 0px !important;
 }
+
+#add-curriculum {
+  color: white;
+}
+#add-curriculum input{
+  size: 30px;
+}
+
+

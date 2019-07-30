@@ -36,7 +36,8 @@ public class DatabaseUserDao extends AbstractDao implements UserDao {
         String password = resultSet.getString("password");
         String name = resultSet.getString("name");
         int credit = resultSet.getInt("credit");
-        return new User(id, email, name, password, credit);
+        boolean role = resultSet.getBoolean("role");
+        return new User(id, email, name,  credit, password, role);
     }
 
     public void addNewUser(String email, String name, String password) throws SQLException {

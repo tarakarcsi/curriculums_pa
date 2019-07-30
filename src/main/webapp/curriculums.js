@@ -67,26 +67,31 @@ function displayCurriculums(curriculums) {
 }
 function addNewCurriculum() {
     const addCurriculumFormEl = document.forms['add-curriculum'];
-    const typeSelector = document.getElementById("type");
 
-    const pNameInputEl = loginFormEl.querySelector('input[name="name"]');
-    const brandInputEl = loginFormEl.querySelector('input[name="brand"]');
-    const priceInputEl = loginFormEl.querySelector('input[name="price"]');
+    const cTitleInputEl = addCurriculumFormEl.querySelector('input[name="add-title"]');
+    const cUrlInputEl = addCurriculumFormEl.querySelector('input[name="add-url"]');
+    const priceInputEl = addCurriculumFormEl.querySelector('input[name="add-price"]');
+    const topicIdInputEl = addCurriculumFormEl.querySelector('input[name="add-topicId"]');
 
-    const typeValue = typeSelector.options[typeSelector.selectedIndex].value;
-    const name = pNameInputEl.value;
-    const brand = brandInputEl.value;
+    const title = cTitleInputEl.value;
+    const url = cUrlInputEl.value;
     const price = priceInputEl.value;
+    const topicId = topicIdInputEl.value;
 
     const params = new URLSearchParams();
-    params.append('name', name);
-    params.append('type', typeValue);
-    params.append('brand', brand);
+    params.append('title', title);
+    params.append('url', url);
     params.append('price', price);
+    params.append('topicId', topicId);
 
     const xhr = new XMLHttpRequest();
-    xhr.addEventListener('load', addProductResponse);
+    xhr.addEventListener('load', addCurriculumResponse);
     xhr.addEventListener('error', onNetworkError);
-    xhr.open('POST', 'product?' + params.toString());
-    xhr.send();
+    xhr.open('POST', 'curriculums');
+    xhr.send(params);
+}
+
+
+function addCurriculumResponse() {
+    alert("Curriculum added!");
 }

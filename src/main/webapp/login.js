@@ -20,9 +20,15 @@ function onLoginResponse() {
     if (this.status === OK) {
         const user = JSON.parse(this.responseText);
         setAuthorization(user);
-        showContents(['navbar', 'topics']);
-        onProfileLoad();
-        onTopicsLoad();
+        if(user.role === true){
+            showContents(['navbar', 'admin-content']);
+            onProfileLoad();
+        }else{
+            showContents(['navbar', 'topics']);
+            onProfileLoad();
+            onTopicsLoad();
+        }
+        
     } else {
         onOtherResponse(loginPageDivEl, this);
     }

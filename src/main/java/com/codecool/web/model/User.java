@@ -9,8 +9,10 @@ public class User extends AbstractModel {
     private String name;
     private boolean role;
 
-    public User(int userId, int credit, String password, boolean role) {
+    public User(int userId, String email, String name, int credit, String password, boolean role) {
         super(userId);
+        this.email = email;
+        this.name = name;
         this.credit = credit;
         this.password = password;
         this.role = role;

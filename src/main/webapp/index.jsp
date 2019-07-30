@@ -97,11 +97,13 @@
             </table>
         </div>
         <div id="admin-content" class="content hidden">
+            <h1 style="color:white">Create new Curriculum</h1><br>
+                <h2 style="color:white">Enter properties:</h2><br>
             <form id="add-curriculum" onsubmit="return false;">
-                Title: <input type="text" name="add-title">
-                URL: <input type="text" name="add-url">
-                Price: <input type="text" name="add-price">
-                TopicId: <input type="text" name="add-topicId">
+                <input type="text" placeholder="Title" name="add-title"><br>
+                <input type="text" placeholder="URL" name="add-url"><br>
+                <input type="text" placeholder="Price" name="add-price"><br>
+                <input type="text" placeholder="TopicId" name="add-topicId"><br>
                 <button id="add-new-curriculum" type="submit" onclick="addNewCurriculum()">Add</button>
             </form>
         </div>

@@ -34,6 +34,16 @@ public class CurriculumServlet extends AbstractServlet {
 
             List<Curriculum> curriculumList = curriculumService.getCurriculumsByTopic(topicId);
 
+            if(req.getParameter("title") != null) {
+
+                String cTitle = req.getParameter("title");
+                String cUrl = req.getParameter("url");
+                int cPrice = Integer.parseInt(req.getParameter("price"));
+                int cTopicId = Integer.parseInt(req.getParameter("topicId"));
+
+                curriculumService.addCurriculum(cTitle, cUrl, cPrice, cTopicId);
+            }
+
             sendMessage(resp, HttpServletResponse.SC_OK, curriculumList);
 
         } catch (SQLException e) {

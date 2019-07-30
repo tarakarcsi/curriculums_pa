@@ -61,7 +61,7 @@ INSERT INTO curriculums(title, price, content, topicId) VALUES ('Basic SCRUM Rul
 INSERT INTO users(email, name, password, role) VALUES ('user1@curriculums.com', 'user1', 'user1', false);
 INSERT INTO users(email, name, password, role) VALUES ('user2@curriculums.com', 'user2', 'user2', false);
 INSERT INTO users(email, name, password, role, credit) VALUES ('admin1@curriculums.com', 'admin1', 'admin1', true, 10000);
-INSERT INTO users(email, name, password, rolec, credit) VALUES ('admin2@curriculums.com', 'admin2', 'admin2', true, 10000);
+INSERT INTO users(email, name, password, role, credit) VALUES ('admin2@curriculums.com', 'admin2', 'admin2', true, 10000);
 
 
 CREATE TRIGGER check_purchase
